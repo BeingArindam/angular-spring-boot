@@ -1,20 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<header id="intro" style="display: block;">
+	<article class="fullheight" style="height: 100px;">
+		<div class="hgroup">
+			<h3>Grand Hotel</h3>
+			<h5>Kolkata, West Bengal</h5>
+		</div>
+	</article>
+</header>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="gallery">
+				<img alt="any" src="assets/intro_dining.jpg"> <img alt="any"
+					src="assets/intro_pool.jpg"> <img alt="any"
+					src="assets/intro_room.jpg"> <img alt="any"
+					src="assets/intro_games.jpg"> <img alt="any"
+					src="assets/intro_rooftop.jpg">
+			</div>
+			<h2>Book A Room</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<form class="form-horizontal" [formGroup]="roomsearch" (ngSubmit)="onSubmit(roomsearch)">
+				<div class="formgroup">
+					<label for="checkin" class="col-xs-2">Check-In:</label>
+					<div class="col-xs-10">
+						<input id="checkin" type="date" size="10" class="form-control" formControlNmae="checkin">
+					</div>
+				</div>
+				<div class="formgroup">
+					<label for="checkout" class="col-xs-2">Check-Out:</label>
+					<div class="col-xs-10">
+						<input id="checkout" type="date" size="10" class="form-control" formControlNmae="checkout">
+					</div>
+				</div>
+				<div class="col-xs-offset-2">
+					<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+				</div>
+			</form>
+			<br />
+			<h3>Available Rooms</h3>
+			<div class="table-responsive">
+				<table class="table">
+					<tbody>
+						<tr *ngFor="let room of rooms">
+							<td><img alt="any" src="assets/intro_room.jpg"></td>
+							<td><strong>Room #: {{room.roomNumber}}</strong><br> <strong>Price
+									#: {{room.price}}</strong></td>
+							<td><button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button></td>		
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
