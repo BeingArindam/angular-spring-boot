@@ -1,5 +1,6 @@
 package com.home.demo.learning.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -69,6 +70,11 @@ public class RoomEntity {
 	public void setReservationEntityList(List<ReservationEntity> reservationEntityList) {
 		this.reservationEntityList = reservationEntityList;
 	}
-
+	
+	public void addReservationEntity(ReservationEntity reservationEntity) {
+		if(reservationEntityList == null)
+			reservationEntityList = new ArrayList<>();
+		reservationEntityList.add(reservationEntity);
+	}
 	
 }

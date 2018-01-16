@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -16,8 +17,8 @@ public class ReservationEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull
-	private Long roomId;
+	@ManyToOne
+	private RoomEntity roomEntity;
 
 	@NotNull
 	private LocalDate checkin;
@@ -29,9 +30,8 @@ public class ReservationEntity {
 		super();
 	}
 
-	public ReservationEntity(Long roomId, LocalDate checkin, LocalDate checkout) {
+	public ReservationEntity(LocalDate checkin, LocalDate checkout) {
 		super();
-		this.roomId = roomId;
 		this.checkin = checkin;
 		this.checkout = checkout;
 	}
@@ -60,11 +60,11 @@ public class ReservationEntity {
 		this.checkout = checkout;
 	}
 
-	public Long getRoomId() {
-		return roomId;
+	public RoomEntity getRoomEntity() {
+		return roomEntity;
 	}
 
-	public void setRoomId(Long roomId) {
-		this.roomId = roomId;
+	public void setRoomEntity(RoomEntity roomEntity) {
+		this.roomEntity = roomEntity;
 	}
 }

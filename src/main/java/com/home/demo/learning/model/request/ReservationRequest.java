@@ -7,20 +7,21 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class ReservationRequest {
 	private Long id;
+	private Long roomId;
 	@DateTimeFormat(iso = ISO.DATE)
-	private LocalDate checkIn;
+	private LocalDate checkin;
 	@DateTimeFormat(iso = ISO.DATE)
-	private LocalDate checkOut;
-	
+	private LocalDate checkout;
+
 	public ReservationRequest() {
 		super();
 	}
 
-	public ReservationRequest(Long id, LocalDate checkIn, LocalDate checkOut) {
+	public ReservationRequest(Long roomId, LocalDate checkin, LocalDate checkout) {
 		super();
-		this.id = id;
-		this.checkIn = checkIn;
-		this.checkOut = checkOut;
+		this.roomId = roomId;
+		this.checkin = checkin;
+		this.checkout = checkout;
 	}
 
 	public Long getId() {
@@ -31,20 +32,27 @@ public class ReservationRequest {
 		this.id = id;
 	}
 
-	public LocalDate getCheckIn() {
-		return checkIn;
+	public LocalDate getCheckin() {
+		return checkin;
 	}
 
-	public void setCheckIn(LocalDate checkIn) {
-		this.checkIn = checkIn;
+	public void setCheckin(LocalDate checkin) {
+		this.checkin = checkin;
 	}
 
-	public LocalDate getCheckOut() {
-		return checkOut;
+	public LocalDate getCheckout() {
+		return checkout;
 	}
 
-	public void setCheckOut(LocalDate checkOut) {
-		this.checkOut = checkOut;
+	public void setCheckOut(LocalDate checkout) {
+		this.checkout = checkout;
 	}
 
+	public Long getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
 }

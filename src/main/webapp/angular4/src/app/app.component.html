@@ -21,17 +21,17 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12">
-			<form class="form-horizontal" [formGroup]="roomsearch" (ngSubmit)="onSubmit(roomsearch)">
+			<form class="form-horizontal" [formGroup]="roomsearch" (ngSubmit)="onSubmit(roomsearch)" >
 				<div class="formgroup">
 					<label for="checkin" class="col-xs-2">Check-In:</label>
 					<div class="col-xs-10">
-						<input id="checkin" type="date" size="10" class="form-control" formControlNmae="checkin">
+						<input id="checkin" type="date" size="10" class="form-control" formControlName="checkin" required="required">
 					</div>
 				</div>
 				<div class="formgroup">
 					<label for="checkout" class="col-xs-2">Check-Out:</label>
 					<div class="col-xs-10">
-						<input id="checkout" type="date" size="10" class="form-control" formControlNmae="checkout">
+						<input id="checkout" type="date" size="10" class="form-control" formControlName="checkout" required="required">
 					</div>
 				</div>
 				<div class="col-xs-offset-2">
@@ -39,14 +39,15 @@
 				</div>
 			</form>
 			<br />
+			
+			<div class="table-responsive" *ngIf="rooms">
 			<h3>Available Rooms</h3>
-			<div class="table-responsive">
 				<table class="table">
 					<tbody>
 						<tr *ngFor="let room of rooms">
 							<td><img alt="any" src="assets/intro_room.jpg"></td>
 							<td><strong>Room #: {{room.roomNumber}}</strong><br> <strong>Price
-									#: {{room.price}}</strong></td>
+									#: $ {{room.price}} {{room.id}}</strong></td>
 							<td><button type="submit" class="btn btn-primary" (click)="reserveRoom(room.id)">Reserve</button></td>		
 						</tr>
 					</tbody>

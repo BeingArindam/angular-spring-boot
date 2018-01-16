@@ -13,6 +13,7 @@ public class RoomEntityToReservationConverter implements Converter<RoomEntity, R
 	@Override
 	public ReservationResponse convert(RoomEntity entity) {
 		ReservationResponse reservationResponse = new ReservationResponse();
+		reservationResponse.setId(entity.getId());
 		reservationResponse.setRoomNumber(entity.getRoomNumber());
 		reservationResponse.setPrice(Double.valueOf(entity.getPrice()));
 		Links links = new Links();
